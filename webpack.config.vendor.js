@@ -1,7 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
 
@@ -37,8 +36,7 @@ module.exports = {
             new webpack.DllPlugin({
                 path: path.join(__dirname, 'wwwroot', '[name]-manifest.json'),
                 name: '[name]_[hash]'
-            }),
-            new CopyWebpackPlugin([])
+            })
         ]
 
 };

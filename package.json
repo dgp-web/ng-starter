@@ -31,7 +31,6 @@
     "zone.js": "^0.8.4"
   },
   "devDependencies": {
-    "@angular/cli": "^7.0.0",
     "@angular/compiler-cli": "^7.0.0",
     "@angular/language-service": "^7.0.0",
     "@ngtools/webpack": "^7.0.0",
@@ -41,12 +40,9 @@
     "angular-playground": "^5.0.0",
     "angular2-template-loader": "^0.6.2",
     "aspnet-webpack": "^3.0.0",
-    "autoprefixer": "^9.4.9",
     "awesome-typescript-loader": "^5.0.0",
     "codelyzer": "^4.5.0",
     "concurrently": "^4.1.0",
-    "copy-webpack-plugin": "^5.0.0",
-    "cssnano": "^4.1.10",
     "jasmine-core": "~2.6.2",
     "js.clone": "^0.0.3",
     "karma": "^3.0.0",
