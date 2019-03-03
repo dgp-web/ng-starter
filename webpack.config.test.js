@@ -36,18 +36,6 @@ module.exports = setTypeScriptAlias(require('./tsconfig.json'), {
             {
                 test: /\.scss$/,
                 loaders: ['raw-loader', 'sass-loader']
-            },
-            {
-                enforce: 'post',
-                test: /\.(js|ts)$/,
-                loader: 'istanbul-instrumenter-loader',
-                include: [
-                    path.resolve(__dirname, 'src'),
-                ],
-                exclude: [
-                    /\.(e2e|spec)\.ts$/,
-                    /node_modules/
-                ]
             }
         ]
     },

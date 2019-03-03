@@ -3,9 +3,8 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-module.exports = () => {
+module.exports = {
 
-    const sharedConfig = {
         stats: { modules: false },
         mode: 'development',
         resolve: {
@@ -29,27 +28,17 @@ module.exports = () => {
         output: {
             filename: '[name].js',
             library: '[name]_[hash]',
-            publicPath: '/'
+            publicPath: '/',
+            path: path.join(__dirname, 'wwwroot')
         },
         plugins: [
-            new webpack.ContextReplacementPlugin(/\@angular\b.*\b(bundles|linker)/, path.join(__dirname, './Client')), // Workaround for https://github.com/angular/angular/issues/11580
-            new webpack.IgnorePlugin(/^vertx$/)
-        ]
-    };
-
-    const clientConfig = merge(sharedConfig, {
-        output: { path: path.join(__dirname, 'wwwroot') },
-        plugins: [
+            new webpack.ContextReplacementPlugin(/\@angular\b.*\b(bundles|linker)/, path.join(__dirname, './Client')),
+            new webpack.IgnorePlugin(/^vertx$/),
             new webpack.DllPlugin({
                 path: path.join(__dirname, 'wwwroot', '[name]-manifest.json'),
                 name: '[name]_[hash]'
             }),
             new CopyWebpackPlugin([])
         ]
-    });
-
-    return [
-        clientConfig
-    ];
 
 };
