@@ -2,7 +2,6 @@ import "./polyfills";
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 import { PlaygroundModule } from "angular-playground";
 import { Component, NgModule, ViewEncapsulation } from "@angular/core";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { hmrModule } from "@angularclass/hmr";
 
 @Component({
@@ -30,8 +29,7 @@ PlaygroundModule
     .configure({
         overlay: false,
         modules: [
-            PlaygroundAppModule,
-            BrowserAnimationsModule
+            PlaygroundAppModule
         ]
     });
 

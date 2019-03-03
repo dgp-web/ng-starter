@@ -1,5 +1,4 @@
 import { BrowserModule } from "@angular/platform-browser";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ApplicationRef, NgModule } from "@angular/core";
 import { createNewHosts, removeNgStyles } from "@angularclass/hmr";
 import { AppComponent } from "./components";
@@ -7,7 +6,6 @@ import { AppComponent } from "./components";
 @NgModule({
     imports: [
         BrowserModule,
-        BrowserAnimationsModule,
     ],
     declarations: [
         AppComponent,
