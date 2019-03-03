@@ -1,0 +1,20 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "module": "commonjs",
+    "include": [
+      "**/*.spec.ts",
+      "**/*.d.ts"
+    ],
+    "exclude": [
+      "bin",
+      "wwwroot",
+      "node_modules"
+    ]
+  }
+}
+
