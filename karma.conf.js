@@ -7,8 +7,7 @@ module.exports = function (config) {
             'jasmine'
         ],
         files: [
-            './karma-tests.js',
-            './wwwroot/libs/jquery.min.js'
+            './karma-tests.js'
         ],
         plugins: [
             require('karma-jasmine'),

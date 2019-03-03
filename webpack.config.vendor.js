@@ -14,15 +14,13 @@ module.exports = () => {
         entry: {
             vendor: [
                 'core-js/shim',
-                'reflect-metadata',
                 'zone.js/dist/zone',
                 'event-source-polyfill',
                 'rxjs',
                 '@angular/common',
-                '@angular/animations',
                 '@angular/compiler',
                 '@angular/core',
-                '@angular/http',
+                '@angular/forms',
                 '@angular/platform-browser',
                 '@angular/platform-browser-dynamic',
                 '@angular/router',
