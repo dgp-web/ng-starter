@@ -7,6 +7,8 @@ module.exports = function (config) {
             'jasmine'
         ],
         files: [
+            './wwwroot/vendor.js',
+            './wwwroot/vendor-manifest.json',
             './karma-tests.js'
         ],
         plugins: [

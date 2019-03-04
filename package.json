@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "license": "all rights reserved",
   "scripts": {
-    "restore": "dotnet restore && npm install && webpack --config webpack.config.vendor.js",
     "start": "dotnet run",
     "test": "karma start",
     "webpack-vendor": "webpack --config webpack.config.vendor.js",

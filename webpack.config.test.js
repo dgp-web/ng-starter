@@ -42,6 +42,11 @@ module.exports = setTypeScriptAlias(require('./tsconfig.json'), {
 
     plugins: [
 
+      new webpack.DllReferencePlugin({
+        context: '.',
+        manifest: require('./wwwroot/vendor-manifest.json')
+      }),
+
         new webpack.ContextReplacementPlugin(/\@angular\b.*\b(bundles|linker)/, path.join(__dirname, './src')),
 
     ],
