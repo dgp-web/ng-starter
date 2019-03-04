@@ -4,7 +4,7 @@
   "license": "all rights reserved",
   "scripts": {
     "start": "dotnet run",
-    "test": "karma start",
+    "test": "karma start --development",
     "webpack-vendor": "webpack --config webpack.config.vendor.js",
     "playground": "concurrently \"npm run playground:run\" \"npm run playground:serve\"",
     "playground:run": "angular-playground --no-serve",

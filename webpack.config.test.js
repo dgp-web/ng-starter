@@ -2,65 +2,69 @@ const webpack = require('webpack');
 const path = require('path');
 const clone = require('js.clone');
 
-module.exports = setTypeScriptAlias(require('./tsconfig.json'), {
-    mode: 'development',
-    devtool: 'inline-source-map',
+module.exports = function(env) {
 
-    resolve: {
-        extensions: ['.js', '.ts']
-    },
-    entry: {
-        main: ['./karma-tests.js']
-    },
-    output: {
-        path: path.join(__dirname, 'wwwroot'),
-        filename: '[name].js',
-        publicPath: '/dist/'
-    },
+      console.log(env);
 
-    module: {
-        rules: [
-            {
-                test: /\.ts$/,
-                exclude: [/\.e2e\.ts$/],
-                loaders: [
-                    'awesome-typescript-loader?{ configFileName: "./tsconfig.spec.json", useTranspileModule: true, transpileOnly: true, useCache: true, cacheDirectory: ".awcache-test" }',
-                    'angular2-template-loader'
-                ]
-            },
+      return setTypeScriptAlias(require('./tsconfig.json'), {
+        mode: 'development',
+        devtool: 'inline-source-map',
 
-            {test: /\.html$/, loader: 'raw-loader'},
+        resolve: {
+            extensions: ['.js', '.ts']
+        },
+        entry: {
+            main: ['./karma-tests.js']
+        },
+        output: {
+            path: path.join(__dirname, 'wwwroot'),
+            filename: '[name].js',
+            publicPath: '/dist/'
+        },
 
-            {test: /\.css/, loader: 'raw-loader'},
+        module: {
+            rules: [
+                {
+                    test: /\.ts$/,
+                    exclude: [/\.e2e\.ts$/],
+                    loaders: [
+                        'awesome-typescript-loader?{ configFileName: "./tsconfig.spec.json", useTranspileModule: true, transpileOnly: true, useCache: true, cacheDirectory: ".awcache-test" }',
+                        'angular2-template-loader'
+                    ]
+                },
 
-            {
-                test: /\.scss$/,
-                loaders: ['raw-loader', 'sass-loader']
-            }
-        ]
-    },
+                {test: /\.html$/, loader: 'raw-loader'},
 
-    plugins: [
+                {test: /\.css/, loader: 'raw-loader'},
 
-      new webpack.DllReferencePlugin({
-        context: '.',
-        manifest: require('./wwwroot/vendor-manifest.json')
-      }),
+                {
+                    test: /\.scss$/,
+                    loaders: ['raw-loader', 'sass-loader']
+                }
+            ]
+        },
 
-        new webpack.ContextReplacementPlugin(/\@angular\b.*\b(bundles|linker)/, path.join(__dirname, './src')),
+        plugins: [
 
-    ],
+        new webpack.DllReferencePlugin({
+            context: '.',
+            manifest: require('./wwwroot/vendor-manifest.json')
+        }),
 
-    node: {
-        global: true,
-        crypto: 'empty',
-        process: true,
-        module: false,
-        clearImmediate: false,
-        setImmediate: false
-    }
-});
+            new webpack.ContextReplacementPlugin(/\@angular\b.*\b(bundles|linker)/, path.join(__dirname, './src')),
 
+        ],
+
+        node: {
+            global: true,
+            crypto: 'empty',
+            process: true,
+            module: false,
+            clearImmediate: false,
+            setImmediate: false
+        }
+    });
+}
 function setTypeScriptAlias(tsConfig, config) {
     var newConfig = clone(config);
     newConfig = newConfig || {};

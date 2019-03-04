@@ -2,6 +2,8 @@
 
 module.exports = function (config) {
 
+    const isDevBuild = config.development === true;
+
     config.set({
         basePath: '.',
         frameworks: [
@@ -33,7 +35,11 @@ module.exports = function (config) {
 
         mime: {'application/javascript': ['ts', 'tsx']},
         singleRun: false,
-        webpack: require('./webpack.config.test.js'),
+        webpack: require('./webpack.config.test.js')({
+          env: {
+            development: isDevBuild
+          }
+        }),
         webpackMiddleware: {stats: 'errors-only'},
 
     });
