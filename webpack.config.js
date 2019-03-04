@@ -5,11 +5,12 @@ const AngularCompilerPlugin = require('@ngtools/webpack').AngularCompilerPlugin;
 
 const sharedConfig = require("./webpack.config.shared-app");
 
-const isDevBuild = process.env.ASPNETCORE_ENVIRONMENT !== 'Production';
-const mode = isDevBuild ? "development" : "production";
 const distDirectory = './wwwroot';
 
-module.exports = function() {
+module.exports = function(env) {
+
+    const isDevBuild = env.development = true;
+    const mode = isDevBuild ? "development" : "production";
 
     console.log('isDevBuild? ' + isDevBuild);
 

@@ -32,7 +32,10 @@ namespace app
 
                 app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions
                 {
-                    HotModuleReplacement = true
+                    HotModuleReplacement = true,
+                    EnvParam = new {
+                      development = true
+                    }
                 });
             }
 

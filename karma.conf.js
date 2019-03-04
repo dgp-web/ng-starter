@@ -1,6 +1,7 @@
 ﻿process.env.CHROME_BIN = require('puppeteer').executablePath();
 
 module.exports = function (config) {
+
     config.set({
         basePath: '.',
         frameworks: [
@@ -33,6 +34,7 @@ module.exports = function (config) {
         mime: {'application/javascript': ['ts', 'tsx']},
         singleRun: false,
         webpack: require('./webpack.config.test.js'),
-        webpackMiddleware: {stats: 'errors-only'}
+        webpackMiddleware: {stats: 'errors-only'},
+
     });
 };

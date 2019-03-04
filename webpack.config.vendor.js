@@ -4,7 +4,9 @@ const merge = require('webpack-merge');
 
 module.exports = {
 
-  stats: {modules: false},
+  stats: {
+    modules: false
+  },
   mode: 'development',
   resolve: {
     extensions: ['.js']
