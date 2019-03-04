@@ -19,7 +19,8 @@
 .awcache
 .awcache-test
 .awcache-playground
-.idea
+.idea/*
+!.idea/fileTemplates
 
 # dotnet core
 /bin
@@ -51,6 +52,3 @@ testem.log
 .DS_Store
 Thumbs.db
 
-.idea/workspace.xml
-.idea/inspectionProfiles/profiles_settings.xml
-.idea/workspace.xml___jb_tmp___
