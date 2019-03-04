@@ -18,6 +18,7 @@
 .awcache
 .awcache-test
 .awcache-playground
+.idea
 
 # dotnet core
 /bin
