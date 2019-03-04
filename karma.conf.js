@@ -8,7 +8,6 @@ module.exports = function (config) {
         ],
         files: [
             './wwwroot/vendor.js',
-            './wwwroot/vendor-manifest.json',
             './karma-tests.js'
         ],
         plugins: [
