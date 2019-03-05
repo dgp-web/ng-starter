@@ -9,10 +9,8 @@ const distDirectory = './wwwroot';
 
 module.exports = function(env) {
 
-    const isDevBuild = env && env.development === true;
+    const isDevBuild = (env !== null && env !== undefined) && env.development === true;
     const mode = isDevBuild ? "development" : "production";
-
-    console.log('isDevBuild? ' + isDevBuild);
 
     return webpackMerge(sharedConfig, {
         mode: mode,
