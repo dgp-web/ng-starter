@@ -19,12 +19,13 @@ namespace app
         public void ConfigureServices(IServiceCollection services)
         {
       	    services.AddMvc();
+            services.AddLogging(loggingBuilder => {
+              loggingBuilder.AddConsole();
+            });
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-
-            loggerFactory.AddConsole();
 
             if (env.IsDevelopment())
             {
