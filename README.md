@@ -1,29 +1,40 @@
-# README #
+# ng starter #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+Light-weight starter project for web clients based on dotnet core mvc and angular
 
-### What is this repository for? ###
+## Getting started ##
+ 
+**Development**
+ 
+Install needed npm packages
+```
+npm install
+```
+ 
+Bundle vendor assets so they can be referenced in incremental builds
+```
+npm run webpack-vendor
+```
+  
+Run the application
+```
+npm start
+```
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+Run unit tests
+```
+npm run test:watch
+```
 
-### How do I get set up? ###
+Run playground
+```
+npm run test:watch
+```
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+**Production**
 
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+Call dotnet core's publish command. It will install the needed npm packages, run unit tests and 
+needed build steps.
+```
+dotnet publish
+```
