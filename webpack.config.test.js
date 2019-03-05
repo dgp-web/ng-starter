@@ -4,10 +4,11 @@ const clone = require('js.clone');
 
 module.exports = function(env) {
 
-      console.log(env);
+    const isDevBuild = env && env.development === true;
+    const mode = isDevBuild ? "development" : "production";
 
       return setTypeScriptAlias(require('./tsconfig.json'), {
-        mode: 'development',
+        mode: mode,
         devtool: 'inline-source-map',
 
         resolve: {
@@ -45,15 +46,15 @@ module.exports = function(env) {
         },
 
         plugins: [
+          new webpack.ContextReplacementPlugin(/\@angular\b.*\b(bundles|linker)/, path.join(__dirname, './src')),
+        ].concat(isDevBuild ? [
 
-        new webpack.DllReferencePlugin({
-            context: '.',
-            manifest: require('./wwwroot/vendor-manifest.json')
-        }),
+          new webpack.DllReferencePlugin({
+              context: '.',
+              manifest: require('./wwwroot/vendor-manifest.json')
+          }),
 
-            new webpack.ContextReplacementPlugin(/\@angular\b.*\b(bundles|linker)/, path.join(__dirname, './src')),
-
-        ],
+        ] : []),
 
         node: {
             global: true,

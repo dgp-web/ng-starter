@@ -9,9 +9,11 @@ module.exports = function (config) {
         frameworks: [
             'jasmine'
         ],
-        files: [
+        files: isDevBuild ? [
             './wwwroot/vendor.js',
             './karma-tests.js'
+        ] : [
+          './karma-tests.js'
         ],
         plugins: [
             require('karma-jasmine'),
@@ -34,7 +36,7 @@ module.exports = function (config) {
         ],
 
         mime: {'application/javascript': ['ts', 'tsx']},
-        singleRun: false,
+        singleRun: !isDevBuild,
         webpack: require('./webpack.config.test.js')({
           env: {
             development: isDevBuild
