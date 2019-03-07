@@ -2,10 +2,12 @@ import { BrowserModule } from "@angular/platform-browser";
 import { ApplicationRef, NgModule } from "@angular/core";
 import { createNewHosts, removeNgStyles } from "@angularclass/hmr";
 import { AppComponent } from "./components";
+import { ApiClientModule } from "../api-client";
 
 @NgModule({
     imports: [
         BrowserModule,
+        ApiClientModule
     ],
     declarations: [
         AppComponent,
