@@ -5,3 +5,4 @@
  */
 // export * from "./api-clients";
 export * from "./api-client.module";
+export * from "./api-client-settings";

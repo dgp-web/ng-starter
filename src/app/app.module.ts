@@ -2,7 +2,7 @@ import {BrowserModule} from "@angular/platform-browser";
 import {ApplicationRef, NgModule} from "@angular/core";
 import {createNewHosts, removeNgStyles} from "@angularclass/hmr";
 import {AppComponent} from "./components";
-import {ApiClientModule} from "../api-client";
+import {ApiClientModule, ApiClientSettings} from "../api-client";
 import {take} from "rxjs/operators";
 import {Store} from "@ngrx/store";
 import {AppState, AppStoreModule, HmrReloadAction} from "../store";
@@ -10,7 +10,10 @@ import {AppState, AppStoreModule, HmrReloadAction} from "../store";
 @NgModule({
   imports: [
     BrowserModule,
-    ApiClientModule,
+    ApiClientModule.forRoot({
+      provide: ApiClientSettings,
+      useValue: {}
+    }),
     AppStoreModule
   ],
   declarations: [
