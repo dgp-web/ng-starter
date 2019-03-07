@@ -5,7 +5,7 @@ import { Component, NgModule, ViewEncapsulation } from "@angular/core";
 import { hmrModule } from "@angularclass/hmr";
 
 @Component({
-    selector: "dgp-playground-app",
+    selector: "playground-app",
     template: "<ng-content></ng-content>",
     encapsulation: ViewEncapsulation.None
 })
