@@ -55,7 +55,9 @@ module.exports = function(env) {
             publicPath: '/public/'
         },
 
-        plugins: [].concat(isDevBuild ? [
+        plugins: [
+          new webpack.ContextReplacementPlugin(/(.+)?angular(\\|\/)core(.+)?/, path.join(__dirname, 'src'), {}),
+        ].concat(isDevBuild ? [
 
             new webpack.DllReferencePlugin({
                 context: '.',

@@ -53,6 +53,8 @@ module.exports = function() {
 
         plugins: [
 
+            new webpack.ContextReplacementPlugin(/(.+)?angular(\\|\/)core(.+)?/, path.join(__dirname, 'src'), {}),
+
             new webpack.DllReferencePlugin({
                 context: '.',
                 manifest: require('./wwwroot/vendor-manifest.json')
