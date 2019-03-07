@@ -17,6 +17,7 @@ module.exports = {
       'zone.js/dist/zone',
       'event-source-polyfill',
       'rxjs',
+      'entity-store',
       '@angular/common',
       '@angular/compiler',
       '@angular/core',
@@ -24,6 +25,10 @@ module.exports = {
       '@angular/platform-browser',
       '@angular/platform-browser-dynamic',
       '@angular/router',
+      '@angularclass/hmr',
+      '@ngrx/store',
+      '@ngrx/effects',
+      '@ngrx/store-devtools'
     ]
   },
   output: {
