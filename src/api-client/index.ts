@@ -1,6 +1,7 @@
 /**
- * All communication with external apis
- * is encapsulated in this module
+ * Encapsulates communication with external apis
+ *
+ * May reference models and functions
  */
-export * from "./api-clients";
+// export * from "./api-clients";
 export * from "./api-client.module";

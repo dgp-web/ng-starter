@@ -1,4 +1,5 @@
 /**
- * Building blocks for your presentational
- * components go here.
+ * Presentational components
+ *
+ * May reference models and functions
  */

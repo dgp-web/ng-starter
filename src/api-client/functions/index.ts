@@ -1,3 +1,3 @@
 /**
- * Mapping logic goes here
+ * Mapping logic
  */
