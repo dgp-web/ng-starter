@@ -10,6 +10,7 @@ module.exports = function() {
 
     return webpackMerge(sharedConfig, {
         mode: 'development',
+        devtool: false,
         devServer: {
             contentBase: path.join(__dirname, "wwwroot"),
         },

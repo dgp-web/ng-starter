@@ -14,6 +14,7 @@ module.exports = function(env) {
 
     return webpackMerge(sharedConfig, {
         mode: mode,
+        devtool: false,
 
         module: {
             rules: [
