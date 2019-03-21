@@ -35,7 +35,7 @@ npm run test:watch
 
 Run playground
 ```
-npm run test:watch
+npm run playground
 ```
 
 **Production**
