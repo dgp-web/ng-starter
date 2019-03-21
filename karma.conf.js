@@ -38,9 +38,7 @@ module.exports = function (config) {
         mime: {'application/javascript': ['ts', 'tsx']},
         singleRun: !isDevBuild,
         webpack: require('./webpack.config.test.js')({
-          env: {
             development: isDevBuild
-          }
         }),
         webpackMiddleware: {stats: 'errors-only'},
 
