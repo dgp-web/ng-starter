@@ -3,7 +3,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {ApiClientSettings} from "./api-client-settings";
 
 export interface ApiClientSettingsProvider extends ValueProvider {
-  provide: ApiClientSettings;
+  provide: typeof ApiClientSettings;
 }
 
 @NgModule({
