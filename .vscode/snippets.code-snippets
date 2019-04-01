@@ -1,0 +1,191 @@
+{
+	// Place your workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+  // }
+  "Jasmine spec": {
+    "scope": "typescript",
+    "prefix": "spec",
+    "description": "A bare jasmine test",
+    "body": [
+      "describe(\"$1\", () => {",
+      "",
+      "   it(\"$2\", () => {});",
+      "",
+      "});"
+    ]
+  },
+  "Ng component": {
+    "scope": "typescript",
+    "prefix": "ng-component",
+    "description": "Angular component",
+    "body": [
+      "import { Component, ChangeDetectionStrategy } from \"@angular/core\";",
+      "",
+      "@Component({",
+      "   selector: \"$1-$2\",",
+      "   templateUrl: \"./$2.component.html\",",
+      "   styleUrls: [",
+      "     \"./$2.component.scss\"",
+      "   ],",
+      "   changeDetection: ChangeDetectionStrategy.OnPush",
+      "})",
+      "export class $3Component {}",
+      "",
+    ]
+  },
+  "Ng component spec": {
+    "scope": "typescript",
+    "prefix": "ng-component-spec",
+    "description": "A spec for an angular component",
+    "body": [
+      "import { ComponentFixture, async, TestBed } from \"@angular/core/testing\";",
+      "import { ChangeDetectionStrategy } from \"@angular/core\";",
+      "",
+      "describe($1.name, () => {",
+      "",
+      "   let fixture: ComponentFixture<$1>;",
+      "   let component: $1;",
+      "",
+      "   beforeEach(async(async () => {",
+      "",
+      "     await TestBed.configureTestingModule({",
+      "       declarations: [",
+      "         $1",
+      "       ],",
+      "       imports: [",
+      "",
+      "       ]",
+      "     }).compileComponents();",
+      "",
+      "     TestBed.overrideComponent($1, {",
+      "       set: {",
+      "         changeDetection: ChangeDetectionStrategy.Default",
+      "       }",
+      "     });",
+      "",
+      "     fixture = TestBed.createComponent($1);",
+      "     component = fixture.componentInstance;",
+      "   }));",
+      "",
+      "   it(\"should create\", () => {",
+      "       expect(component).toBeDefined();",
+      "   });",
+      "});"
+    ]
+  },
+  "Ng module": {
+    "scope": "typescript",
+    "prefix": "ng-module",
+    "description": "Angular module",
+    "body": [
+      "import { NgModule } from \"@angular/core\";",
+      "import * as components from \"./components\";",
+      "",
+      "@NgModule({})",
+      "export class $1Module {}",
+      "",
+    ]
+  },
+  "Ng service": {
+    "scope": "typescript",
+    "prefix": "ng-service",
+    "description": "ng-service",
+    "body": [
+      "import { Injectable } from \"@angular/core\";",
+      "",
+      "@Injectable()",
+      "export class $1Service {}"
+    ]
+  },
+  "Ng service spec": {
+    "scope": "typescript",
+    "prefix": "ng-service-spec",
+    "description": "ng-service spec",
+    "body": [
+      "import { async, TestBed } from \"@angular/core/testing\";",
+      "",
+      "describe($1.name, () => {",
+      "",
+      "  let service: $1;",
+      "",
+      "   beforeEach(async(async () => {",
+      "",
+      "     await TestBed.configureTestingModule({",
+      "       providers: [",
+      "         $1",
+      "       ]",
+      "     }).compileComponents();",
+      "",
+      "     service = TestBed.get($1);",
+      "   }));",
+      "",
+      "   it(\"should create\", () => {",
+      "       expect(service).toBeDefined();",
+      "   });",
+      "",
+      "});"
+    ]
+  },
+  "Ngrx effects": {
+    "scope": "typescript",
+    "prefix": "ngrx-effects",
+    "description": "ngrx-effects",
+    "body": [
+      "import { Injectable } from \"@angular/core\";",
+      "",
+      "@Injectable()",
+      "export class $1Effects{}"
+    ]
+  },
+  "Ngrx effects spec": {
+    "scope": "typescript",
+    "prefix": "ngrx-effects-spec",
+    "description": "ngrx-effects spec",
+    "body": [
+      "import { async, TestBed } from \"@angular/core/testing\";",
+      "import { EffectsMetadata, getEffectsMetadata } from \"@ngrx/effects\";",
+      "import { provideMockActions } from \"@ngrx/effects/testing\";",
+      "import { ReplaySubject } from \"rxjs\";",
+      "",
+      "describe($1.name, () => {",
+      "",
+      "  let effects: $1;",
+      "  let metadata: EffectsMetadata<$1>;",
+      "  let actions: ReplaySubject<any>;",
+      "",
+      "   beforeEach(async(async () => {",
+      "",
+      "     await TestBed.configureTestingModule({",
+      "       providers: [",
+      "         $1,",
+      "         provideMockActions(() => actions)",
+      "       ]",
+      "     }).compileComponents();",
+      "",
+      "     effects = TestBed.get($1);",
+      "     metadata = getEffectsMetadata(effects);",
+      "     actions = new ReplaySubject(1);",
+      "   }));",
+      "",
+      "   it(\"should create\", () => {",
+      "       expect(effects).toBeDefined();",
+      "   });",
+      "",
+      "});"
+    ]
+  }
+}
+
