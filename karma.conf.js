@@ -41,6 +41,9 @@ module.exports = function (config) {
             development: isDevBuild
         }),
         webpackMiddleware: {stats: 'errors-only'},
+        mochaReporter: {
+          output: 'minimal'
+        }
 
     });
 };
