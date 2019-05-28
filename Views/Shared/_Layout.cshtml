@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@model app.AppSettings
+@using app
+@addTagHelper "*, Microsoft.AspNetCore.Mvc.TagHelpers"
+@addTagHelper "*, Microsoft.AspNetCore.SpaServices"
+
+<!DOCTYPE html>
 <html>
     <head>
         <base href="/" />
@@ -6,6 +11,14 @@
 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <script>
+
+          var injectedAppSettings = {
+
+          };
+
+        </script>
 
     </head>
     <body>

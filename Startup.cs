@@ -9,12 +9,24 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.SpaServices.Webpack;
+using Microsoft.Extensions.Configuration;
 
 namespace app
 {
 
     public class Startup
     {
+        private IConfigurationRoot Configuration { get; }
+
+        public Startup(IHostingEnvironment env)
+        {
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(env.ContentRootPath)
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                .AddEnvironmentVariables();
+
+             Configuration = builder.Build();
+        }
 
         public void ConfigureServices(IServiceCollection services)
         {
@@ -22,6 +34,7 @@ namespace app
             services.AddLogging(loggingBuilder => {
               loggingBuilder.AddConsole();
             });
+            services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

@@ -2,18 +2,26 @@ import {BrowserModule} from "@angular/platform-browser";
 import {ApplicationRef, NgModule} from "@angular/core";
 import {createNewHosts, removeNgStyles} from "@angularclass/hmr";
 import {AppComponent} from "./components";
-import {ApiClientModule, ApiClientSettings} from "../api-client";
+import {ApiClientModule, ApiClientSettings, ApiClientSettingsProvider} from "../api-client";
 import {take} from "rxjs/operators";
 import {Store} from "@ngrx/store";
 import {AppState, AppStoreModule, HmrReloadAction} from "../store";
+
+declare var injectedAppSettings: ApiClientSettings;
+
+const apiClientSettings: ApiClientSettings = {
+
+
+
+};
 
 @NgModule({
   imports: [
     BrowserModule,
     ApiClientModule.forRoot({
       provide: ApiClientSettings,
-      useValue: {}
-    }),
+      useValue: apiClientSettings
+    } as ApiClientSettingsProvider),
     AppStoreModule
   ],
   declarations: [
