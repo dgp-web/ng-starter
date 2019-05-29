@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
 const path = require('path');
 const AngularCompilerPlugin = require('@ngtools/webpack').AngularCompilerPlugin;
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 
 const sharedConfig = require("./webpack.config.shared-app");
 
@@ -21,10 +22,15 @@ module.exports = function(env) {
                 {
                     test: /(?:\.ngfactory\.js|\.ngstyle\.js|\.ts)$/,
                     loaders: [
-                    ].concat(isDevBuild ? [
-                        'awesome-typescript-loader?{ configFileName: "./tsconfig.app.json", useTranspileModule: true, transpileOnly: true, useCache: true, cacheDirectory: ".awcache" }',
-                        'angular2-template-loader',
-                    ]: [
+                    ].concat(isDevBuild ? [{
+                      loader: 'ts-loader',
+                      options: {
+                        transpileOnly: true,
+                        configFile: "tsconfig.app.json"
+                      }
+                    }, {
+                      loader: 'angular2-template-loader',
+                    }]: [
                         '@ngtools/webpack'
                     ])
                 },
@@ -73,7 +79,9 @@ module.exports = function(env) {
             new webpack.SourceMapDevToolPlugin({
                 filename: '[file].map',
                 moduleFilenameTemplate: path.relative(distDirectory, '[resourcePath]')
-            })
+            }),
+
+            new HardSourceWebpackPlugin()
 
         ] : [
 

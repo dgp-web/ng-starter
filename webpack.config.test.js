@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const clone = require('js.clone');
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 
 module.exports = function(env) {
 
@@ -28,10 +29,15 @@ module.exports = function(env) {
                 {
                     test: /\.ts$/,
                     exclude: [/\.e2e\.ts$/],
-                    loaders: [
-                        'awesome-typescript-loader?{ configFileName: "./tsconfig.spec.json", useTranspileModule: true, transpileOnly: true, useCache: true, cacheDirectory: ".awcache-test" }',
-                        'angular2-template-loader'
-                    ]
+                    loaders: [{
+                      loader: 'ts-loader',
+                      options: {
+                        transpileOnly: true,
+                        configFile: "tsconfig.spec.json"
+                      }
+                    }, {
+                      loader: 'angular2-template-loader',
+                    }]
                 },
 
                 {test: /\.html$/, loader: 'raw-loader'},
@@ -53,6 +59,8 @@ module.exports = function(env) {
               context: '.',
               manifest: require('./wwwroot/vendor-manifest.json')
           }),
+
+          new HardSourceWebpackPlugin()
 
         ] : []),
 
