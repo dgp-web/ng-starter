@@ -29,7 +29,7 @@
 
   <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
 
-    <Exec Command="npm install" />
+    <Exec Command="npm --loglevel=error install" />
     <Exec Command="npm test" />
     <Exec Command="npm run build" />
 
