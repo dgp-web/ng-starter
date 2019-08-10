@@ -1,11 +1,11 @@
 ﻿@addTagHelper "*, Microsoft.AspNetCore.Mvc.TagHelpers"
 
+@section baseHref {
+    <base href="~/" />
+}
+
 @section scripts {
-    <!-- Our webpack bundles -->
-    <environment names="Development">
-       <script src="~/vendor.js"
-                  asp-append-version="true"></script>
-     </environment>
+    <app></app>
     <script src="~/main-client.js"
             asp-append-version="true"></script>
 }

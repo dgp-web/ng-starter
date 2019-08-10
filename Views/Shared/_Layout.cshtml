@@ -6,7 +6,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <base href="/" />
+        @RenderSection("baseHref", required: false)
+
         <title>NG starter</title>
 
         <meta charset="utf-8" />
@@ -20,10 +21,14 @@
 
         </script>
 
+        <environment names="Development">
+           <script src="~/vendor.js"
+                   asp-append-version="true"></script>
+        </environment>
+
     </head>
     <body>
         @RenderBody()
-        <app></app>
         @RenderSection("scripts", required: false)
     </body>
 </html>

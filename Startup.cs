@@ -51,6 +51,7 @@ namespace app
                       development = true
                     }
                 });
+
             }
 
             app.UseStaticFiles();
@@ -59,7 +60,13 @@ namespace app
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}"
+                    );
+
+                 routes.MapRoute(
+                    name: "playground",
+                    template: "{controller=Playground}/{action=Index}/{id?}"
+                    );
 
                 routes.MapSpaFallbackRoute("spa-fallback", new { controller = "Home", action = "Index" });
             });

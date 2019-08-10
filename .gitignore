@@ -25,6 +25,7 @@
 /bin
 /obj
 /wwwroot/*
+!/wwwroot/assets
 !/wwwroot/index.html
 
 # IDE - VSCode
