@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "dgp-web",
+  "classifications": [ "Common", "Code" ],
+  "identity": "dgp-ng-app",
+  "name": "Dgp: angular starter",
+  "shortName": "dgp-ng-app",
+  "tags": {
+    "language": "C#",
+    "type": "item"
+  },
+  "exclude": [
+    ".git/**/*",
+    "[Bb]in/**",
+    "[Oo]in/**",
+    ".template.config/**/*",
+    "**/*.lock.json",
+    "node_modules/**"
+  ]
+}

@@ -1,6 +1,6 @@
 import {ActionReducerMap} from "@ngrx/store";
 import {FactoryProvider, InjectionToken} from "@angular/core";
-import {hmrReducer} from "./reducers";
+import {hmrReducer} from "dgp-ng-app";
 
 export interface AppState {
 }

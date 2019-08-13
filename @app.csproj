@@ -25,6 +25,7 @@
       <Content Remove="tsconfig.spec.json" />
       <Content Remove="angular-playground.json" />
       <Content Remove="tslint.json" />
+      <Content Remove="template.json" />
   </ItemGroup>
 
   <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
