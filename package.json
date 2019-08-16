@@ -12,11 +12,11 @@
   },
   "private": true,
   "dependencies": {
-    "dgp-ng-app": "^7"
+    "dgp-ng-app": "^7.0.2"
   },
   "devDependencies": {
     "aspnet-webpack": "^3.0.0",
-    "dgp-ng-app-tools": "^7",
+    "dgp-ng-app-tools": "^7.0.2",
     "karma": "^3"
   }
 }
