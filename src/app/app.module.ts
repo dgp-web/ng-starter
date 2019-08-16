@@ -29,8 +29,8 @@ const apiClientSettings: ApiClientSettings = {};
 export class AppModule extends DgpNgApp {
 
   constructor(public appRef: ApplicationRef,
-              private ngrxStore: Store<AppState>) {
-    super();
+              protected ngrxStore: Store<AppState>) {
+    super(appRef, ngrxStore);
   }
 
 }
