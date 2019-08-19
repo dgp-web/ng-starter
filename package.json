@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "aspnet-webpack": "^3.0.0",
-    "dgp-ng-app-tools": "^7.0.2",
+    "dgp-ng-app-tools": "^7.0.3",
     "karma": "^3"
   }
 }
