@@ -13,8 +13,7 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <script src="~/assets/eventsource.min.js"
-                asp-append-version="true"></script>
+
 
         <script>
 
@@ -25,6 +24,8 @@
         </script>
 
         <environment names="Development">
+           <script src="~/assets/eventsource.min.js"
+                   asp-append-version="true"></script>
            <script src="~/vendor.js"
                    asp-append-version="true"></script>
         </environment>
