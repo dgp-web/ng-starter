@@ -9,6 +9,7 @@
     <content url="file://$MODULE_DIR$/node_modules/@angular" />
     <content url="file://$MODULE_DIR$/node_modules/@angularclass" />
     <content url="file://$MODULE_DIR$/node_modules/@ngrx" />
+    <content url="file://$MODULE_DIR$/node_modules/angular-playground" />
     <content url="file://$MODULE_DIR$/node_modules/core-js" />
     <content url="file://$MODULE_DIR$/node_modules/entity-store" />
     <content url="file://$MODULE_DIR$/node_modules/lodash" />
