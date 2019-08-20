@@ -20,6 +20,9 @@
 .awcache-playground
 .idea/*
 !.idea/fileTemplates
+!.idea/runConfigurations
+!.idea/copyStyles
+!.idea/inspectionProfiles
 !.idea/ng-starter.iml
 
 # dotnet core

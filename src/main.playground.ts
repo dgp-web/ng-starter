@@ -1,7 +1,7 @@
 import "dgp-ng-app/polyfills";
-import {PlaygroundModule} from "angular-playground";
-import {Component, enableProdMode, HostBinding, NgModule, ViewEncapsulation} from "@angular/core";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { PlaygroundModule } from "angular-playground";
+import { Component, enableProdMode, HostBinding, NgModule, ViewEncapsulation } from "@angular/core";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 import { hmrModule, bootloader } from "@angularclass/hmr";
 
