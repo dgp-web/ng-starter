@@ -25,3 +25,22 @@ app {
   display: flex;
   flex-direction: column;
 }
+
+.spacer {
+    flex-grow: 1;
+}
+
+.hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 100%;
+}
+
+.hamburger-menu__main-entries {
+    flex-grow: 1;
+}
+
+.hamburger-menu-list-item__icon {
+    margin-right: 16px;
+}

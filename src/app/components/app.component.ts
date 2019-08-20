@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from "@angular/core";
+import { ChangeDetectionStrategy, Component, ViewEncapsulation } from "@angular/core";
 
 @Component({
     selector: "app",
@@ -6,7 +6,8 @@ import { ChangeDetectionStrategy, Component } from "@angular/core";
     styleUrls: [
         "./app.component.scss"
     ],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
 }

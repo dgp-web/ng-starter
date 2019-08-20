@@ -24,6 +24,7 @@
 !.idea/copyStyles
 !.idea/inspectionProfiles
 !.idea/ng-starter.iml
+!.idea/watcherTasks.xml
 
 # dotnet core
 /bin
