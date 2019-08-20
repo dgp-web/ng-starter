@@ -20,6 +20,7 @@
 .awcache-playground
 .idea/*
 !.idea/fileTemplates
+!.idea/ng-starter.iml
 
 # dotnet core
 /bin
