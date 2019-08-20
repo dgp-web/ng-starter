@@ -1,1 +1,1 @@
-export * from "./hmr.actions";
+export * from "./app.actions";
