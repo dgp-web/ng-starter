@@ -4,19 +4,17 @@
   "license": "all rights reserved",
   "scripts": {
     "start": "concurrently \"dotnet run\" \"angular-playground --no-serve\"",
-    "prebuild": "angular-playground --no-serve --no-watch",
-    "build": "webpack --env.development=false",
-    "test": "karma start",
-    "test:watch": "karma start --development",
-    "webpack-vendor": "webpack --config webpack.config.vendor.js"
+    "build": "dgp build",
+    "test": "dgp test",
+    "test:watch": "dgp test --development",
+    "webpack-vendor": "dgp vendor"
   },
   "private": true,
   "dependencies": {
-    "dgp-ng-app": "^7.0.2"
+    "dgp-ng-app": "^7.2.0"
   },
   "devDependencies": {
     "aspnet-webpack": "^3.0.0",
-    "dgp-ng-app-tools": "^7.0.3",
-    "karma": "^3"
+    "dgp-ng-app-tools": "^7.2.5"
   }
 }
