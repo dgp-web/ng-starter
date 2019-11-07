@@ -9,45 +9,36 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.SpaServices.Webpack;
-
+using Microsoft.Extensions.Configuration;
 
 namespace app
 {
 
-     public class Program
-    {
-        public static void Main(string[] args)
-        {
-            var host = new WebHostBuilder()
-                .UseKestrel()
-                .UseContentRoot(Directory.GetCurrentDirectory())
-                .UseIISIntegration()
-                .UseStartup<Startup>()
-                .Build();
-
-            host.Run();
-        }
-    }
-
     public class Startup
     {
+        private IConfigurationRoot Configuration { get; }
+
+        public Startup(IHostingEnvironment env)
+        {
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(env.ContentRootPath)
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                .AddEnvironmentVariables();
+
+             Configuration = builder.Build();
+        }
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors();
-            services.AddNodeServices();
-            services.AddMvc();
+      	    services.AddMvc();
+            services.AddLogging(loggingBuilder => {
+              loggingBuilder.AddConsole();
+            });
+            services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            app.UseCors(builder => builder
-                 .AllowAnyHeader()
-                 .AllowAnyMethod()
-                 .AllowAnyOrigin()
-             );
-
-            loggerFactory.AddConsole();
 
             if (env.IsDevelopment())
             {
@@ -55,8 +46,14 @@ namespace app
 
                 app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions
                 {
-                    HotModuleReplacement = true
+                    HotModuleReplacement = true,
+                    EnvParam = new {
+                      development = true,
+                      usePlayground = true
+                    },
+                    ConfigFile = "node_modules/dgp-ng-app-tools/bin/webpack.config.js"
                 });
+
             }
 
             app.UseStaticFiles();
@@ -65,7 +62,13 @@ namespace app
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}"
+                    );
+
+                 routes.MapRoute(
+                    name: "playground",
+                    template: "{controller=Playground}/{action=Index}/{id?}"
+                    );
 
                 routes.MapSpaFallbackRoute("spa-fallback", new { controller = "Home", action = "Index" });
             });

@@ -1,13 +1,45 @@
 import { BrowserModule } from "@angular/platform-browser";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ApplicationRef, NgModule } from "@angular/core";
-import { createNewHosts, removeNgStyles } from "@angularclass/hmr";
 import { AppComponent } from "./components";
+import { ApiClientModule, ApiClientSettings, ApiClientSettingsProvider } from "../api-client";
+import { Store } from "@ngrx/store";
+import { AppState, AppStoreModule } from "../store";
+import * as dgp from "dgp-ng-app";
+import { RouterModule } from "@angular/router";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { UiSharedModule } from "../ui/shared";
+import * as services from "./services";
+import * as features from "../features";
+
+declare var injectedAppSettings: ApiClientSettings;
+
+const apiClientSettings: ApiClientSettings = {};
 
 @NgModule({
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
+
+        ApiClientModule.forRoot({
+            provide: ApiClientSettings,
+            useValue: apiClientSettings
+        } as ApiClientSettingsProvider),
+
+        AppStoreModule,
+
+        RouterModule.forRoot([]),
+
+        dgp.DgpAuthenticationModule.forRoot({
+            authenticationApiClientProvider: services.authenticationApiClientProvider,
+            initializationServiceProvider: services.initializationServiceProvider
+        }),
+        dgp.DgpHamburgerShellModule.forRoot(),
+        dgp.DgpThemeSwitcherModule.forRoot(),
+        dgp.DgpLogModule,
+        dgp.DgpBroadcastStoreModule.forRoot(),
+
+        UiSharedModule,
+        features.HomeModule
     ],
     declarations: [
         AppComponent,
@@ -16,30 +48,15 @@ import { AppComponent } from "./components";
         AppComponent
     ]
 })
-export class AppModule {
+export class AppModule extends dgp.DgpNgApp {
 
-    constructor(public appRef: ApplicationRef) {
-    }
+    constructor(public appRef: ApplicationRef,
+                protected ngrxStore: Store<AppState>) {
+        super(appRef, ngrxStore);
 
-    //noinspection JSUnusedGlobalSymbols
-    hmrOnInit(store) {
-        if (!store || !store.rootState) return;
-        this.appRef.tick();
-        Object.keys(store)
-            .forEach(prop => delete store[prop]);
-    }
-
-    //noinspection JSUnusedGlobalSymbols
-    hmrOnDestroy(store) {
-        const cmpLocation = this.appRef.components.map(cmp => cmp.location.nativeElement);
-        store.disposeOldHosts = createNewHosts(cmpLocation);
-        removeNgStyles();
-    }
-
-    //noinspection JSUnusedGlobalSymbols
-    hmrAfterDestroy(store) {
-        store.disposeOldHosts();
-        delete store.disposeOldHosts;
+        this.ngrxStore.dispatch(
+            new dgp.SetBroadcastChannelDataIdAction("dgpNgApp")
+        );
     }
 
 }

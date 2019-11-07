@@ -1,0 +1,46 @@
+@import "./style/maetrial-icons";
+@import "./style/app-theme";
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/assets/roboto-regular.ttf") format("truetype");
+}
+
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0px;
+}
+
+app {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.spacer {
+    flex-grow: 1;
+}
+
+.hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 100%;
+}
+
+.hamburger-menu__main-entries {
+    flex-grow: 1;
+}
+
+.hamburger-menu-list-item__icon {
+    margin-right: 16px;
+}

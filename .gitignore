@@ -18,16 +18,25 @@
 .awcache
 .awcache-test
 .awcache-playground
+.idea/*
+!.idea/fileTemplates
+!.idea/runConfigurations
+!.idea/copyStyles
+!.idea/inspectionProfiles
+!.idea/ng-starter.iml
+!.idea/watcherTasks.xml
 
 # dotnet core
 /bin
 /obj
 /wwwroot/*
+!/wwwroot/assets
 !/wwwroot/index.html
 
 # IDE - VSCode
 .vscode/*
 !.vscode/settings.json
+!.vscode/snippets.code-snippets
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
@@ -49,6 +58,4 @@ testem.log
 .DS_Store
 Thumbs.db
 
-.idea/workspace.xml
-.idea/inspectionProfiles/profiles_settings.xml
-.idea/workspace.xml___jb_tmp___
+/package-lock.json
