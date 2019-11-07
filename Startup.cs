@@ -48,8 +48,10 @@ namespace app
                 {
                     HotModuleReplacement = true,
                     EnvParam = new {
-                      development = true
-                    }
+                      development = true,
+                      usePlayground = true
+                    },
+                    ConfigFile = "node_modules/dgp-ng-app-tools/bin/webpack.config.js"
                 });
 
             }

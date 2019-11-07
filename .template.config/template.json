@@ -17,9 +17,9 @@
       "exclude": [
         ".git/**",
         "[Bb]in/**",
-        "[Oo]in/**",
+        "[Oo]bj/**",
         ".template.config/**/*",
-        "**/*.lock.json",
+        "**/package-lock.json",
         "node_modules/**"
       ]
     }
