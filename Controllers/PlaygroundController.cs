@@ -9,14 +9,16 @@ namespace app
 {
     public class PlaygroundController : Controller
     {
+		 private readonly AppSettings settings;
 
-         public PlaygroundController() {
+         public PlaygroundController(IOptions<AppSettings> settings) {
+             this.settings = settings.Value;
          }
 
          // GET: /<controller>/
          public IActionResult Index()
          {
-              return View();
+              return View(settings);
          }
     }
 }
